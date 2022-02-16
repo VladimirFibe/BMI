@@ -15,6 +15,7 @@
 		1F75D95627BC924D008B9D39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75D95527BC924D008B9D39 /* SceneDelegate.swift */; };
 		1F75D95827BC9277008B9D39 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75D95727BC9277008B9D39 /* BMIViewController.swift */; };
 		1F75D97727BD1872008B9D39 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75D97627BD1872008B9D39 /* ResultViewController.swift */; };
+		1F75D97927BD502E008B9D39 /* BMIBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75D97827BD502E008B9D39 /* BMIBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1F75D95527BC924D008B9D39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1F75D95727BC9277008B9D39 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		1F75D97627BD1872008B9D39 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		1F75D97827BD502E008B9D39 /* BMIBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				1F75D95727BC9277008B9D39 /* BMIViewController.swift */,
 				1F75D97627BD1872008B9D39 /* ResultViewController.swift */,
 				1F75D94627BC914B008B9D39 /* ContentView.swift */,
+				1F75D97827BD502E008B9D39 /* BMIBrain.swift */,
 				1F75D94827BC914E008B9D39 /* Assets.xcassets */,
 				1F75D94A27BC914E008B9D39 /* Preview Content */,
 			);
@@ -154,6 +157,7 @@
 				1F75D95327BC91A8008B9D39 /* AppDelegate.swift in Sources */,
 				1F75D94727BC914B008B9D39 /* ContentView.swift in Sources */,
 				1F75D94527BC914B008B9D39 /* BMIApp.swift in Sources */,
+				1F75D97927BD502E008B9D39 /* BMIBrain.swift in Sources */,
 				1F75D95827BC9277008B9D39 /* BMIViewController.swift in Sources */,
 				1F75D95627BC924D008B9D39 /* SceneDelegate.swift in Sources */,
 				1F75D97727BD1872008B9D39 /* ResultViewController.swift in Sources */,

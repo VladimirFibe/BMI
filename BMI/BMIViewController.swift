@@ -8,6 +8,7 @@
 import UIKit
 
 class BMIViewController: UIViewController {
+  var brain = BMIBrain()
   let backgroundView = UIImageView(image: UIImage(named: "calculate_background"))
   
   let titleLabel: UILabel = {
@@ -92,7 +93,6 @@ class BMIViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
-    print(heightSlider.value)
   }
   func setupUI() {
     view.addSubview(backgroundView)
@@ -138,9 +138,9 @@ class BMIViewController: UIViewController {
   @objc func calculatePressed(_ sender: UIButton) {
     let weight = weightSlider.value
     let height = heightSlider.value
-    let bmi = weight / (height * height)
+    brain.calculateBMI(height: height, weight: weight)
     let controller = ResultViewController()
-    controller.value = String(format: "%.1f", bmi)
+    controller.bmi = brain.getBMI()
     self.present(controller, animated: true, completion: nil)
   }
 }
