@@ -5,8 +5,7 @@
 //  Created by Vladimir Fibe on 16.02.2022.
 //
 
-import Foundation
-import UIKit
+import SwiftUI
 
 class ResultViewController: UIViewController {
   var bmi: BMI?
@@ -24,7 +23,6 @@ class ResultViewController: UIViewController {
     label.textAlignment = .center
     label.font = .boldSystemFont(ofSize: 80)
     label.textColor = .white
-
     return label
   }()
   let subtitleLabel: UILabel = {
@@ -46,7 +44,7 @@ class ResultViewController: UIViewController {
     button.clipsToBounds = true
     button.translatesAutoresizingMaskIntoConstraints = false
     button.heightAnchor.constraint(equalToConstant: 51.0).isActive = true
-    button.addTarget(self, action: #selector(recalculatePressed), for: .touchUpInside)
+    button.addTarget(nil, action: #selector(recalculatePressed), for: .touchUpInside)
     return button
   }()
   
@@ -65,7 +63,7 @@ class ResultViewController: UIViewController {
     view.addSubview(recalculateButton)
     let margins = view.layoutMarginsGuide
     recalculateButton.translatesAutoresizingMaskIntoConstraints = false
-    recalculateButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+    recalculateButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20).isActive = true
     recalculateButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
     recalculateButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     recalculateButton.heightAnchor.constraint(equalToConstant: 51).isActive = true
@@ -85,3 +83,24 @@ class ResultViewController: UIViewController {
     self.dismiss(animated: true)
   }
 }
+
+struct ResultViewControllerSUI: UIViewControllerRepresentable {
+  typealias UIViewControllerType = ResultViewController
+  
+  func makeUIViewController(context: Context) -> UIViewControllerType {
+    let viewController = UIViewControllerType()
+    return viewController
+  }
+  
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    
+  }
+}
+
+struct ResultViewController_Previews: PreviewProvider {
+  static var previews: some View {
+    ResultViewControllerSUI()
+      .edgesIgnoringSafeArea(.all)
+  }
+}
+

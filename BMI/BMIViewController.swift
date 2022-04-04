@@ -5,7 +5,7 @@
 //  Created by Vladimir Fibe on 16.02.2022.
 //
 
-import UIKit
+import SwiftUI
 
 class BMIViewController: UIViewController {
   var brain = BMIBrain()
@@ -51,6 +51,7 @@ class BMIViewController: UIViewController {
     label.textColor = .darkGray
     return label
   }()
+  
   let heightSlider: UISlider = {
     let slider = UISlider()
     slider.maximumValue = 3.0
@@ -60,7 +61,7 @@ class BMIViewController: UIViewController {
     slider.thumbTintColor = #colorLiteral(red: 0.4549019608, green: 0.4470588235, blue: 0.8235294118, alpha: 0.4951038099) // 7472D2 0.52
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
-    slider.addTarget(self, action: #selector(heightSliderChanged), for: .valueChanged)
+    slider.addTarget(nil, action: #selector(heightSliderChanged), for: .valueChanged)
     return slider
   }()
   
@@ -73,7 +74,7 @@ class BMIViewController: UIViewController {
     slider.thumbTintColor = #colorLiteral(red: 0.4549019608, green: 0.4470588235, blue: 0.8235294118, alpha: 0.4951038099) // 7472D2 0.52
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
-    slider.addTarget(self, action: #selector(weightSliderChanged), for: .valueChanged)
+    slider.addTarget(nil, action: #selector(weightSliderChanged), for: .valueChanged)
     return slider
   }()
   
@@ -86,7 +87,7 @@ class BMIViewController: UIViewController {
     button.clipsToBounds = true
     button.translatesAutoresizingMaskIntoConstraints = false
     button.heightAnchor.constraint(equalToConstant: 51.0).isActive = true
-    button.addTarget(self, action: #selector(calculatePressed), for: .touchUpInside)
+    button.addTarget(nil, action: #selector(calculatePressed), for: .touchUpInside)
     return button
   }()
   
@@ -94,6 +95,7 @@ class BMIViewController: UIViewController {
     super.viewDidLoad()
     setupUI()
   }
+  
   func setupUI() {
     view.addSubview(backgroundView)
     backgroundView.contentMode = .scaleAspectFill
@@ -123,10 +125,11 @@ class BMIViewController: UIViewController {
     let margins = view.layoutMarginsGuide
     stack.translatesAutoresizingMaskIntoConstraints = false
     stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-    stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+    stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20).isActive = true
     stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
     stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
   }
+  
   @objc func heightSliderChanged(_ sender: UISlider) {
     heightLabel.text = String(format: "%.2fm", sender.value)
   }
@@ -144,3 +147,24 @@ class BMIViewController: UIViewController {
     self.present(controller, animated: true, completion: nil)
   }
 }
+
+struct SwiftUIController: UIViewControllerRepresentable {
+  typealias UIViewControllerType = BMIViewController
+  
+  func makeUIViewController(context: Context) -> UIViewControllerType {
+    let viewController = UIViewControllerType()
+    return viewController
+  }
+  
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    
+  }
+}
+
+struct SwiftUIController_Previews: PreviewProvider {
+  static var previews: some View {
+    SwiftUIController()
+      .edgesIgnoringSafeArea(.all)
+  }
+}
+
