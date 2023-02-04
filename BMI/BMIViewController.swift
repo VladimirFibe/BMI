@@ -1,13 +1,6 @@
-//
-//  BMIViewController.swift
-//  BMI
-//
-//  Created by Vladimir Fibe on 16.02.2022.
-//
-
 import SwiftUI
 
-class BMIViewController: UIViewController {
+final class BMIViewController: UIViewController {
   var brain = BMIBrain()
   let backgroundView = UIImageView(image: UIImage(named: "calculate_background"))
   
@@ -52,7 +45,7 @@ class BMIViewController: UIViewController {
     return label
   }()
   
-  let heightSlider: UISlider = {
+  lazy var heightSlider: UISlider = {
     let slider = UISlider()
     slider.maximumValue = 3.0
     slider.minimumValue = 0.1
@@ -61,11 +54,11 @@ class BMIViewController: UIViewController {
     slider.thumbTintColor = #colorLiteral(red: 0.4549019608, green: 0.4470588235, blue: 0.8235294118, alpha: 0.4951038099) // 7472D2 0.52
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
-    slider.addTarget(nil, action: #selector(heightSliderChanged), for: .valueChanged)
+    slider.addTarget(self, action: #selector(heightSliderChanged), for: .valueChanged)
     return slider
   }()
   
-  let weightSlider: UISlider = {
+  lazy var weightSlider: UISlider = {
     let slider = UISlider()
     slider.maximumValue = 200.0
     slider.minimumValue = 0.0
@@ -74,11 +67,11 @@ class BMIViewController: UIViewController {
     slider.thumbTintColor = #colorLiteral(red: 0.4549019608, green: 0.4470588235, blue: 0.8235294118, alpha: 0.4951038099) // 7472D2 0.52
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
-    slider.addTarget(nil, action: #selector(weightSliderChanged), for: .valueChanged)
+    slider.addTarget(self, action: #selector(weightSliderChanged), for: .valueChanged)
     return slider
   }()
   
-  let calculateButton: UIButton = {
+  lazy var calculateButton: UIButton = {
     let button = UIButton(type: .system)
     button.setTitle("CALCULATE", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 20.0)
@@ -87,7 +80,7 @@ class BMIViewController: UIViewController {
     button.clipsToBounds = true
     button.translatesAutoresizingMaskIntoConstraints = false
     button.heightAnchor.constraint(equalToConstant: 51.0).isActive = true
-    button.addTarget(nil, action: #selector(calculatePressed), for: .touchUpInside)
+    button.addTarget(self, action: #selector(calculatePressed), for: .touchUpInside)
     return button
   }()
   

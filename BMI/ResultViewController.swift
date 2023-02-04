@@ -1,13 +1,6 @@
-//
-//  ResultViewController.swift
-//  BMI
-//
-//  Created by Vladimir Fibe on 16.02.2022.
-//
-
 import SwiftUI
 
-class ResultViewController: UIViewController {
+final class ResultViewController: UIViewController {
   var bmi: BMI?
   let backgroundView = UIImageView(image: UIImage(named: "result_background"))
   let titleLabel: UILabel = {
@@ -25,6 +18,7 @@ class ResultViewController: UIViewController {
     label.textColor = .white
     return label
   }()
+    
   let subtitleLabel: UILabel = {
     let label = UILabel()
     label.textAlignment = .center
@@ -34,7 +28,7 @@ class ResultViewController: UIViewController {
     return label
   }()
   
-  let recalculateButton: UIButton = {
+  lazy var recalculateButton: UIButton = {
     let button = UIButton(type: .system)
     button.setTitle("RECALCULATE", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 20.0)
@@ -44,7 +38,7 @@ class ResultViewController: UIViewController {
     button.clipsToBounds = true
     button.translatesAutoresizingMaskIntoConstraints = false
     button.heightAnchor.constraint(equalToConstant: 51.0).isActive = true
-    button.addTarget(nil, action: #selector(recalculatePressed), for: .touchUpInside)
+    button.addTarget(self, action: #selector(recalculatePressed), for: .touchUpInside)
     return button
   }()
   

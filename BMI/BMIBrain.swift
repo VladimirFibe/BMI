@@ -1,10 +1,3 @@
-//
-//  BMIBrain.swift
-//  BMI
-//
-//  Created by Vladimir Fibe on 16.02.2022.
-//
-
 import Foundation
 import UIKit
 
